@@ -25,7 +25,7 @@ Bangle.on('touch',(touchside, touchdata)=>{
     if(touchdata.y > 88) {
       changevalue += 60*5;
     } else {
-      changevalue += 60*1;
+      changevalue += 30;
     }
     if (timervalue < changevalue) { timervalue = 1 ; }
     else { timervalue -= changevalue; }
