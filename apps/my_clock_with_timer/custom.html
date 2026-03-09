@@ -4,7 +4,7 @@
   </head>
   <body>
       <p>You can set the 2 additional timezones displayed by the clock.</p>
-      <table id="a_clock_timer-offsets">
+      <table id="my_clock_with_timer-offsets">
           <tr>
           <th>Name</th>
           <th>UTC Offset (Hours)</th>
@@ -15,7 +15,7 @@
     <script>
       var offsets=[];
       try{
-          var stored = localStorage.getItem('a_clock_timer-offset-list')
+          var stored = localStorage.getItem('my_clock_with_timer-offset-list')
           if(stored) offsets = JSON.parse(stored);
           if (!offsets || offsets.length!=2) {
               throw "Offsets invalid";
@@ -27,7 +27,7 @@
            ];
         }
       console.log(offsets);
-      var tbl=document.getElementById("a_clock_timer-offsets");
+      var tbl=document.getElementById("my_clock_with_timer-offsets");
       for (var i=0; i<2; i++) {
         var $offset = document.createElement('tr')
         $offset.innerHTML = `
@@ -46,10 +46,10 @@
           }
           console.log(storage_offsets);
           console.log(app_offsets);
-        localStorage.setItem('a_clock_timer-offset-list',JSON.stringify(storage_offsets));
+        localStorage.setItem('my_clock_with_timer-offset-list',JSON.stringify(storage_offsets));
         sendCustomizedApp({
           storage:[
-            {name:"a_clock_timer.settings.json", content:JSON.stringify(app_offsets)},
+            {name:"my_clock_with_timer.settings.json", content:JSON.stringify(app_offsets)},
           ]
         });
       });
